@@ -1,0 +1,289 @@
+<html onkeydown="ninja(event)">
+<head>
+<style>
+body{
+margin:0;
+padding:0;
+}
+.contain
+{
+height:100%;
+width:100%;
+background-image:url("ninja background.jpg");
+background-size:100% 100%;
+position:relative;
+overflow:hidden;
+}
+.ninja
+{
+height:120px;
+width:120px;
+background-image:url("ninja.png");
+background-size:100% 100%;
+position:absolute;
+left:100px;
+top:200px;
+z-index:1;
+}
+.star
+{
+height:40px;
+width:40px;
+background-image:url("star.png");
+background-size:100% 100%;
+position:absolute;
+right:-100px;
+top:200px;
+}
+.star2
+{
+height:40px;
+width:40px;
+background-image:url("star.png");
+background-size:100% 100%;
+position:absolute;
+right:-100px;
+top:500px;
+}
+.star3
+{
+height:40px;
+width:40px;
+background-image:url("star.png");
+background-size:100% 100%;
+position:absolute;
+right:-100px;
+top:100px;
+}
+.star4
+{
+height:40px;
+width:40px;
+background-image:url("star.png");
+background-size:100% 100%;
+position:absolute;
+right:-100px;
+top:400px;
+}
+.animatestar
+{
+animation:abc 2.4s linear 0s infinite;
+}
+@keyframes abc
+{
+from
+{
+right:0px;
+}
+to
+{
+right:100%;
+}
+}
+.animatestar2
+{
+animation:xyz 2.4s linear 0s infinite;
+}
+@keyframes xyz
+{
+from
+{
+right:0px;
+}
+to
+{
+right:100%;
+}
+}
+.animatestar3
+{
+animation:pqr 2.4s linear 0s infinite;
+}
+@keyframes pqr
+{
+from
+{
+right:0px;
+}
+to
+{
+right:100%;
+}
+}
+.animatestar4
+{
+animation:pqr 2.4s linear 0s infinite;
+}
+@keyframes pqr
+{
+from
+{
+right:0px;
+}
+to
+{
+right:100%;
+}
+}
+.gameover
+{
+font-size:90px;
+visibility:hidden;
+font-family:backslash;
+text-shadow:2px 2px 0px black,-2px 2px 0px black,2px -2px 0px black,-2px -2px 0px black;
+color:white;
+position:absolute;
+left:400px;
+top:150px;
+}
+.scorecontainer
+{
+font-size:50px;
+font-family:backslash;
+color:white;
+display:inline-block;
+text-shadow:2px 2px 0px black,-2px 2px 0px black,2px -2px 0px black,-2px -2px 0px black;
+}
+.start
+{
+font-size:50px;
+font-family:backslash;
+text-align:center;
+text-shadow:2px 2px 0px black,-2px 2px 0px black,2px -2px 0px black,-2px -2px 0px black;
+color:white;
+margin-top:100px;
+}
+</style>
+</head>
+<body>
+<div class="contain">
+<div class="ninja"></div>
+<div class="star animatestar"></div>
+<div class="star2"></div>
+<div class="star3"></div>
+<div class="star4"></div>
+<div class="scorecontainer">
+<span class="yourscore">Your Score : </span>
+<span class="score">0</span>
+</div>
+<div class="start">Ninja game - Created By Pramod</div>
+<div class="gameover">Game Over</div>
+</div>
+<script>
+
+function ninja(e)
+{
+var a=e.keyCode;
+console.log(a);
+if(a==40)
+{
+var nt=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).top);
+nt+=50;
+document.getElementsByClassName("ninja")[0].style.top=nt+"px";
+}
+if(a==38)
+{
+var nb=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).top);
+nb-=50;
+document.getElementsByClassName("ninja")[0].style.top=nb+"px";
+}
+if(a==37)
+{
+var nr=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).left);
+nr-=50;
+document.getElementsByClassName("ninja")[0].style.left=nr+"px";
+}
+if(a==39)
+{
+var nl=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).left);
+nl+=50;
+document.getElementsByClassName("ninja")[0].style.left=nl+"px";
+}
+}
+setInterval(star,2400);
+function star()
+{
+document.getElementsByClassName("star")[0].style.top=Math.round(Math.random()*window.innerHeight)+"px";
+}
+setTimeout(()=>{
+document.getElementsByClassName("star2")[0].classList.add("animatestar2");
+setInterval(star2,2400);
+function star2()
+{
+document.getElementsByClassName("star2")[0].style.top=Math.round(Math.random()*window.innerHeight)+"px";
+}},600);
+
+setTimeout(()=>{
+document.getElementsByClassName("star3")[0].classList.add("animatestar3");
+setInterval(star3,2400);
+function star3()
+{
+document.getElementsByClassName("star3")[0].style.top=Math.round(Math.random()*window.innerHeight)+"px";
+}},1200);
+
+setTimeout(()=>{
+document.getElementsByClassName("star4")[0].classList.add("animatestar4");
+setInterval(star4,2400);
+function star4()
+{
+document.getElementsByClassName("star4")[0].style.top=Math.round(Math.random()*window.innerHeight)+"px";
+}},1800);
+
+setInterval(()=>{
+var nh=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).height)/2;
+var nw=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).width)/2;
+var s1h=parseInt(window.getComputedStyle(document.getElementsByClassName("star")[0]).height)/2;
+var s1w=parseInt(window.getComputedStyle(document.getElementsByClassName("star")[0]).width)/2;
+var s2h=parseInt(window.getComputedStyle(document.getElementsByClassName("star2")[0]).height)/2;
+var s2w=parseInt(window.getComputedStyle(document.getElementsByClassName("star2")[0]).width)/2;
+var s3h=parseInt(window.getComputedStyle(document.getElementsByClassName("star3")[0]).height)/2;
+var s3w=parseInt(window.getComputedStyle(document.getElementsByClassName("star3")[0]).width)/2;
+var s4h=parseInt(window.getComputedStyle(document.getElementsByClassName("star4")[0]).height)/2;
+var s4w=parseInt(window.getComputedStyle(document.getElementsByClassName("star4")[0]).width)/2;
+
+var ht=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).top)+nh;
+var hl=parseInt(window.getComputedStyle(document.getElementsByClassName("ninja")[0]).left)+nw;
+var st=parseInt(window.getComputedStyle(document.getElementsByClassName("star")[0]).top)+s1h;
+var sl=parseInt(window.getComputedStyle(document.getElementsByClassName("star")[0]).left)+s1w;
+var s2t=parseInt(window.getComputedStyle(document.getElementsByClassName("star2")[0]).top)+s2h;
+var s2l=parseInt(window.getComputedStyle(document.getElementsByClassName("star2")[0]).left)+s2w;
+var s3t=parseInt(window.getComputedStyle(document.getElementsByClassName("star3")[0]).top)+s3h;
+var s3l=parseInt(window.getComputedStyle(document.getElementsByClassName("star3")[0]).left)+s3w;
+var s4t=parseInt(window.getComputedStyle(document.getElementsByClassName("star4")[0]).top)+s4h;
+var s4l=parseInt(window.getComputedStyle(document.getElementsByClassName("star4")[0]).left)+s4w;
+var td1=Math.abs(ht-st);
+var ld1=Math.abs(hl-sl);
+var td2=Math.abs(ht-s2t);
+var ld2=Math.abs(hl-s2l);
+var td3=Math.abs(ht-s3t);
+var ld3=Math.abs(hl-s3l);
+var td4=Math.abs(ht-s4t);
+var ld4=Math.abs(hl-s4l);
+
+if(ld1<nw+s1w && td1<nh+s1h || ld2<nw+s2w && td2<nh+s2h || ld3<nw+s3w && td3<nh+s3h || ld4<nw+s4w && td4<nh+s4h)
+{
+document.getElementsByClassName("gameover")[0].style.visibility="visible";
+document.getElementsByClassName("star")[0].classList.remove("animatestar");
+document.getElementsByClassName("star2")[0].classList.remove("animatestar2");
+document.getElementsByClassName("star3")[0].classList.remove("animatestar3");
+document.getElementsByClassName("star4")[0].classList.remove("animatestar4");
+document.getElementsByClassName("start")[0].innerText="";
+newsong.pause();
+new Audio("Dank Crying.mp3").play();
+clearInterval(updatescore);
+}
+},1);
+
+var updatescore=setInterval(()=>{
+var scr=document.getElementsByClassName("score")[0].innerText;
+scr=scr+"+"+1;
+document.getElementsByClassName("score")[0].innerText=eval(scr);
+},500);
+var newsong=new Audio("Ninja Hatodi song.mp3");
+setTimeout(()=>{
+newsong.play();
+},2000);
+
+</script>
+</body>
+</html>
